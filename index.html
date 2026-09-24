@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Srinithi | 3D Interactive Portfolio | B.Sc Computer Science</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Official 3D interactive portfolio of Srinithi, 3rd Year B.Sc Computer Science student at Muthayammal College of Arts and Science, Namakkal. Specializing in Web Development, Java, SQL, and UI/UX Design.">
+  <meta name="keywords" content="Srinithi, B.Sc Computer Science, Muthayammal College, Namakkal, Portfolio, Web Developer, Java, SQL, UI/UX, Figma, HTML, CSS">
+  <meta name="author" content="Srinithi">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+
+  <!-- Google Fonts: Outfit, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- Cinematic Preloader -->
+  <div id="preloader">
+    <div class="preloader-spinner-3d">
+      <div class="spinner-ring"></div>
+      <div class="spinner-ring"></div>
+      <div class="spinner-ring"></div>
+      <div class="preloader-core">S</div>
+    </div>
+    <div class="preloader-text">Initializing 3D Universe...</div>
+    <div class="preloader-progress-track">
+      <div class="preloader-progress-bar" id="preloader-progress"></div>
+    </div>
+    <div id="preloader-percent" style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--text-muted); margin-top:8px;">0%</div>
+  </div>
+
+  <!-- 3D Canvas Background Container -->
+  <div id="bg-canvas-container"></div>
+  <div class="ambient-gradient-mesh"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Top Glass HUD Navigation -->
+  <header class="navbar-hud">
+    <a href="#hero" class="nav-brand">
+      <div class="brand-badge">S</div>
+      <div class="brand-text">
+        <span class="brand-name">SRINITHI</span>
+        <span class="brand-tag">B.Sc Computer Science</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#hero" class="nav-link active">Overview</a></li>
+      <li><a href="#metrics" class="nav-link">Academics</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#education" class="nav-link">Education</a></li>
+      <li><a href="#strengths" class="nav-link">Strengths</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-sound-btn" id="sound-toggle-btn" title="Toggle Synthesizer Sound FX">
+        🔇 Sound: OFF
+      </button>
+      <button class="nav-cmd-btn" id="nav-cmd-btn" title="Open Quick Command Palette">
+        <span>Search</span>
+        <span class="cmd-badge">Ctrl K</span>
+      </button>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Menu">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Left Content -->
+          <div class="hero-content reveal-fade-up">
+            <div class="hero-status-pill">
+              <span class="status-dot"></span>
+              <span>Available for Technical Roles & Internships</span>
+            </div>
+
+            <h1 class="hero-title">
+              Hi, I'm <span class="gradient-text">Srinithi</span>
+            </h1>
+
+            <div class="hero-subtitle">
+              <span>B.Sc Computer Science Student (3rd Year)</span>
+              <span class="location-tag">📍 Namakkal, Tamil Nadu</span>
+            </div>
+
+            <!-- Career Objective Glass Card -->
+            <div class="hero-objective-card">
+              <span class="objective-label">// CAREER OBJECTIVE</span>
+              <p class="objective-text">
+                "Motivated B.Sc Computer Science student looking for an opportunity to improve my technical and communication skills and gain practical experience. I am eager to learn new technologies and contribute effectively to an organization."
+              </p>
+            </div>
+
+            <!-- Hero Action Buttons -->
+            <div class="hero-cta-group">
+              <a href="#projects" class="btn btn-primary">
+                <span>View Chocolate Project</span>
+                <span>→</span>
+              </a>
+              <button class="btn btn-secondary" data-open-modal="resume">
+                <span>📄 Interactive Resume</span>
+              </button>
+              <a href="#contact" class="btn btn-glass">
+                <span>Get in Touch</span>
+              </a>
+              <button class="btn btn-glass" onclick="window.Portfolio.copyText('srinithi1352007manicakm@gmail.com', 'Email copied: srinithi1352007manicakm@gmail.com')">
+                <span>📋 Copy Email</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right 3D Tilt Profile Hologram -->
+          <div class="hero-3d-visual reveal-fade-right delay-2">
+            <div class="hero-profile-card tilt-card">
+              <div class="card-top-hud">
+                <span class="hud-code">STUDENT_ID::BCS-2024-27</span>
+                <div class="hud-dots">
+                  <span class="hud-dot"></span>
+                  <span class="hud-dot"></span>
+                  <span class="hud-dot"></span>
+                </div>
+              </div>
+
+              <div class="card-profile-header">
+                <div class="profile-avatar-hologram">
+                  <span>S</span>
+                </div>
+                <div class="profile-info">
+                  <h3>Srinithi</h3>
+                  <p>Computer Science Undergrad</p>
+                  <span class="college-badge">Muthayammal College of Arts & Science</span>
+                </div>
+              </div>
+
+              <!-- Quick Academic Stats -->
+              <div class="card-quick-stats">
+                <div class="quick-stat-box">
+                  <div class="stat-label">Degree Status</div>
+                  <div class="stat-val gradient-text">3rd Year</div>
+                </div>
+                <div class="quick-stat-box">
+                  <div class="stat-label">HSC Marks (12th)</div>
+                  <div class="stat-val" style="color:var(--accent-emerald);">415 / 600</div>
+                </div>
+                <div class="quick-stat-box">
+                  <div class="stat-label">SSLC Marks (10th)</div>
+                  <div class="stat-val" style="color:var(--accent-cyan);">356 / 500</div>
+                </div>
+                <div class="quick-stat-box">
+                  <div class="stat-label">Focus Area</div>
+                  <div class="stat-val" style="color:var(--accent-purple);">UI/UX & Web</div>
+                </div>
+              </div>
+
+              <!-- Direct Contact Strip -->
+              <div class="card-contact-strip">
+                <div class="strip-item">
+                  <span class="strip-label">📞 Phone</span>
+                  <a href="tel:9345471710" class="strip-value">+91 9345471710</a>
+                </div>
+                <div class="strip-item">
+                  <span class="strip-label">✉️ Email</span>
+                  <a href="mailto:srinithi1352007manicakm@gmail.com" class="strip-value" style="font-size:0.75rem;">srinithi1352007manicakm@gmail.com</a>
+                </div>
+                <div class="strip-item">
+                  <span class="strip-label">📍 Location</span>
+                  <span class="strip-value">Namakkal, Tamil Nadu</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- METRICS & ACADEMIC HIGHLIGHTS SECTION -->
+    <section id="metrics" class="metrics-section">
+      <div class="container">
+        <div class="metrics-glass-grid">
+          
+          <div class="metric-card tilt-card reveal-fade-up delay-1">
+            <span class="metric-icon">🎓</span>
+            <div class="metric-num"><span class="counter-val" data-target="3">0</span>rd Year</div>
+            <div class="metric-sub">B.Sc Computer Science Student</div>
+          </div>
+
+          <div class="metric-card tilt-card reveal-fade-up delay-2">
+            <span class="metric-icon">📜</span>
+            <div class="metric-num"><span class="counter-val" data-target="415">0</span></div>
+            <div class="metric-sub">HSC (12th Grade) Marks Score</div>
+          </div>
+
+          <div class="metric-card tilt-card reveal-fade-up delay-3">
+            <span class="metric-icon">🏫</span>
+            <div class="metric-num"><span class="counter-val" data-target="356">0</span></div>
+            <div class="metric-sub">SSLC (10th Grade) Marks Score</div>
+          </div>
+
+          <div class="metric-card tilt-card reveal-fade-up delay-4">
+            <span class="metric-icon">⚡</span>
+            <div class="metric-num"><span class="counter-val" data-target="100">0</span>%</div>
+            <div class="metric-sub">Determination & Fast Learner</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNICAL SKILLS SECTION -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-header reveal-fade-up">
+          <span class="section-pill">Competencies & Knowledge</span>
+          <h2 class="section-title">Technical <span class="gradient-text">Skills Matrix</span></h2>
+          <p class="section-subtitle">
+            Core technical foundation cultivated through B.Sc Computer Science coursework and hands-on projects.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+
+          <!-- Web & Frontend -->
+          <div class="skill-category-card tilt-card reveal-fade-up delay-1">
+            <div class="cat-header">
+              <div class="cat-icon-wrap">🌐</div>
+              <div>
+                <h3>Web & Frontend</h3>
+                <span style="font-size:0.8rem; color:var(--text-muted);">Layout & Interface</span>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <div class="skill-tag">
+                <span class="tag-dot"></span>
+                <span>HTML & CSS</span>
+              </div>
+              <div class="skill-tag">
+                <span class="tag-dot"></span>
+                <span>Basic UI/UX Design</span>
+              </div>
+              <div class="skill-tag">
+                <span class="tag-dot"></span>
+                <span>Responsive Design</span>
+              </div>
+              <div class="skill-tag">
+                <span class="tag-dot"></span>
+                <span>Web Architecture</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Programming & Core CS -->
+          <div class="skill-category-card tilt-card reveal-fade-up delay-2">
+            <div class="cat-header">
+              <div class="cat-icon-wrap purple">☕</div>
+              <div>
+                <h3>Programming & Networks</h3>
+                <span style="font-size:0.8rem; color:var(--text-muted);">Logic & Infrastructure</span>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <div class="skill-tag">
+                <span class="tag-dot" style="background:var(--accent-purple);"></span>
+                <span>Java</span>
+              </div>
+              <div class="skill-tag">
+                <span class="tag-dot" style="background:var(--accent-purple);"></span>
+                <span>Basic Computer Networking</span>
+              </div>
+              <div class="skill-tag">
+                <span class="tag-dot" style="background:var(--accent-purple);"></span>
+                <span>Object Oriented Concepts</span>
+              </div>
+              <div class="skill-tag">
+                <span class="tag-dot" style="background:var(--accent-purple);"></span>
+                <span>Algorithm Logic</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Database Management -->
+          <div class="skill-category-card tilt-card reveal-fade-up delay-3">
+            <div class="cat-header">
+              <div class="cat-icon-wrap emerald">🗄️</div>
+              <div>
+                <h3>Database Systems</h3>
+                <span style="font-size:0.8rem; color:var(--text-muted);">Storage & Queries</span>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <div class="skill-tag">
+                <span class="tag-dot" style="background:var(--accent-emerald);"></span>
+                <span>SQL / DBMS</span>
+              </div>
+              <div class="skill-tag">
+                <span class="tag-dot" style="background:var(--accent-emerald);"></span>
+                <span>Relational Databases</span>
+              </div>
+              <div class="skill-tag">
+                <span class="tag-dot" style="background:var(--accent-emerald);"></span>
+                <span>Data Modeling</span>
+              </div>
+              <div class="skill-tag">
+                <span class="tag-dot" style="background:var(--accent-emerald);"></span>
+                <span>Query Optimization</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Design & Tools -->
+          <div class="skill-category-card tilt-card reveal-fade-up delay-4">
+            <div class="cat-header">
+              <div class="cat-icon-wrap amber">🎨</div>
+              <div>
+                <h3>Design & Productivity</h3>
+                <span style="font-size:0.8rem; color:var(--text-muted);">Prototyping & Office</span>
+              </div>
+            </div>
+            <div class="skill-tags">
+              <div class="skill-tag">
+                <span class="tag-dot" style="background:var(--accent-amber);"></span>
+                <span>Figma</span>
+              </div>
+              <div class="skill-tag">
+                <span class="tag-dot" style="background:var(--accent-amber);"></span>
+                <span>Canva</span>
+              </div>
+              <div class="skill-tag">
+                <span class="tag-dot" style="background:var(--accent-amber);"></span>
+                <span>MS Office</span>
+              </div>
+              <div class="skill-tag">
+                <span class="tag-dot" style="background:var(--accent-amber);"></span>
+                <span>Visual Wireframing</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECT SECTION -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-header reveal-fade-up">
+          <span class="section-pill">Real-World Implementations</span>
+          <h2 class="section-title">Featured <span class="gradient-text">Project Showcase</span></h2>
+          <p class="section-subtitle">
+            End-to-end projects spanning UI/UX design, machine learning, and interactive web applications.
+          </p>
+        </div>
+
+        <div class="project-card-featured reveal-fade-up">
+          <div class="project-inner-grid">
+            
+            <!-- Left Info -->
+            <div>
+              <div class="project-badge-strip">
+                <span class="project-tag">Featured Project</span>
+                <span class="project-tag purple">Figma & Canva</span>
+                <span class="project-tag">HTML & CSS</span>
+                <span class="project-tag">UI/UX Design</span>
+              </div>
+
+              <h3 class="project-title">Chocolate Online Ordering Website / App</h3>
+              
+              <p class="project-description">
+                A dedicated confectionary e-commerce interface crafted with an emphasis on delightful aesthetics, smooth user browsing, and an intuitive product purchase flow.
+              </p>
+
+              <ul class="project-features-list">
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Interface Design:</strong> Designed a simple, attractive chocolate ordering interface with high visual appeal.</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Catalog & Order Flow:</strong> Created product pages and an easy-to-use ordering flow for customers.</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Wireframing:</strong> Worked extensively on wireframes and visual UI design using Figma and Canva.</span>
+                </li>
+              </ul>
+
+              <div style="display:flex; gap:14px; flex-wrap:wrap;">
+                <button class="btn btn-primary" data-open-demo="chocolate">
+                  <span>🚀 Launch Live Interactive Demo</span>
+                </button>
+                <button class="btn btn-glass" onclick="window.Portfolio.showToast('Project developed by Srinithi using HTML, CSS, Figma, & Canva.')">
+                  <span>💡 View Details</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Right Interactive Graphic Mockup Frame -->
+            <div class="project-preview-frame tilt-card">
+              <div class="frame-header">
+                <span class="frame-title">chocolate-ordering-app.local</span>
+                <div class="hud-dots">
+                  <span class="hud-dot"></span>
+                  <span class="hud-dot"></span>
+                  <span class="hud-dot"></span>
+                </div>
+              </div>
+
+              <div class="frame-mockup-body">
+                <div class="choco-icon-large">🍫</div>
+                <h4 style="font-size:1.4rem; color:#f59e0b; margin-bottom:8px;">Cacao Delights Experience</h4>
+                <p style="font-size:0.9rem; color:#94a3b8; max-width:320px; margin-bottom:20px;">
+                  Explore handcrafted chocolate varieties with live cart management and instant checkout preview.
+                </p>
+                <button class="btn btn-secondary" style="padding:10px 22px; font-size:0.88rem;" data-open-demo="chocolate">
+                  ▶ Open In-Browser Simulator
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ✈️ SkyPulse AI - ML Project Card -->
+        <div class="project-card-featured reveal-fade-up" style="margin-top: 40px;">
+          <div class="project-inner-grid">
+
+            <!-- Left Info -->
+            <div>
+              <div class="project-badge-strip">
+                <span class="project-tag" style="background: linear-gradient(135deg, rgba(6,182,212,0.2), rgba(99,102,241,0.2)); border-color: rgba(6,182,212,0.4); color: var(--accent-cyan);">✈️ ML Project</span>
+                <span class="project-tag purple">Python &amp; Scikit-learn</span>
+                <span class="project-tag">Streamlit</span>
+                <span class="project-tag" style="background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.3); color: var(--accent-emerald);">Random Forest</span>
+              </div>
+
+              <h3 class="project-title">✈️ SkyPulse AI — Airline Customer Satisfaction ML System</h3>
+
+              <p class="project-description">
+                An end-to-end Machine Learning web application that predicts passenger satisfaction (Satisfied / Dissatisfied) using 129,880 real airline records and a Random Forest Classifier, served via an interactive Streamlit dashboard with live prediction, retraining, and EDA visualizations.
+              </p>
+
+              <!-- ML Metrics Row -->
+              <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:20px;">
+                <div style="background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.25); border-radius:10px; padding:10px 16px; text-align:center;">
+                  <div style="font-size:1.3rem; font-weight:800; color:var(--accent-cyan); font-family:'Outfit',sans-serif;">95.23%</div>
+                  <div style="font-size:0.7rem; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">ACCURACY</div>
+                </div>
+                <div style="background: rgba(99,102,241,0.08); border: 1px solid rgba(99,102,241,0.25); border-radius:10px; padding:10px 16px; text-align:center;">
+                  <div style="font-size:1.3rem; font-weight:800; color:var(--accent-purple); font-family:'Outfit',sans-serif;">0.9922</div>
+                  <div style="font-size:0.7rem; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">ROC-AUC</div>
+                </div>
+                <div style="background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius:10px; padding:10px 16px; text-align:center;">
+                  <div style="font-size:1.3rem; font-weight:800; color:var(--accent-emerald); font-family:'Outfit',sans-serif;">95.61%</div>
+                  <div style="font-size:0.7rem; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">F1-SCORE</div>
+                </div>
+                <div style="background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.25); border-radius:10px; padding:10px 16px; text-align:center;">
+                  <div style="font-size:1.3rem; font-weight:800; color:var(--accent-amber); font-family:'Outfit',sans-serif;">129,880</div>
+                  <div style="font-size:0.7rem; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">RECORDS</div>
+                </div>
+              </div>
+
+              <ul class="project-features-list">
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>ML Pipeline:</strong> Stratified 80/20 split, SimpleImputer, OneHotEncoder, and Random Forest (n=100, depth=16) serialized to <code style="font-family:'JetBrains Mono',monospace; font-size:0.82em; color:var(--accent-cyan);">model.pkl</code>.</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Top Drivers:</strong> Inflight entertainment (22.77%), Seat comfort (15.35%), Ease of Online booking (9.52%).</span>
+                </li>
+                <li>
+                  <span class="check-icon">✓</span>
+                  <span><strong>Streamlit Dashboard:</strong> 5 sections — Dashboard, Data Overview, Model Training (live retraining), Prediction System (presets + probability gauge), and About.</span>
+                </li>
+              </ul>
+
+              <div style="display:flex; gap:14px; flex-wrap:wrap;">
+                <a href="https://github.com/srinithi1352007manickam-lang/airline-ml-project.git" target="_blank" rel="noopener" class="btn btn-primary" id="skypulse-github-btn">
+                  <span>🔗 View on GitHub</span>
+                  <span>↗</span>
+                </a>
+                <button class="btn btn-glass" onclick="window.Portfolio.showToast('SkyPulse AI — Python, Scikit-learn, Streamlit, Plotly, Random Forest Classifier. 95.23% accuracy on 129,880 airline records.')">
+                  <span>💡 View Details</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Right Interactive Graphic Mockup Frame -->
+            <div class="project-preview-frame tilt-card" style="background: linear-gradient(135deg, rgba(6,182,212,0.05) 0%, rgba(99,102,241,0.08) 50%, rgba(16,185,129,0.05) 100%); border-color: rgba(6,182,212,0.25);">
+              <div class="frame-header" style="border-color: rgba(6,182,212,0.2);">
+                <span class="frame-title">skypulse-ai.streamlit.local:8501</span>
+                <div class="hud-dots">
+                  <span class="hud-dot"></span>
+                  <span class="hud-dot"></span>
+                  <span class="hud-dot"></span>
+                </div>
+              </div>
+
+              <div class="frame-mockup-body">
+                <div style="font-size:3.5rem; margin-bottom:12px; filter:drop-shadow(0 0 18px rgba(6,182,212,0.6));">✈️</div>
+                <h4 style="font-size:1.3rem; color: var(--accent-cyan); margin-bottom:8px;">SkyPulse AI Dashboard</h4>
+                <p style="font-size:0.85rem; color:#94a3b8; max-width:300px; margin-bottom:16px;">
+                  Predict passenger satisfaction in real-time using a trained Random Forest model with 95.23% accuracy.
+                </p>
+
+                <!-- Mini Feature Importance Bar Chart -->
+                <div style="width:100%; text-align:left; margin-bottom:16px;">
+                  <div style="font-size:0.68rem; color:var(--text-muted); font-family:'JetBrains Mono',monospace; margin-bottom:8px;">// TOP FEATURE IMPORTANCES</div>
+                  <div style="display:flex; flex-direction:column; gap:5px;">
+                    <div style="display:flex; align-items:center; gap:8px;">
+                      <span style="font-size:0.7rem; color:#94a3b8; width:140px; flex-shrink:0;">Inflight Entertainment</span>
+                      <div style="flex:1; height:6px; background:rgba(255,255,255,0.07); border-radius:3px; overflow:hidden;">
+                        <div style="width:100%; height:100%; background:linear-gradient(90deg,var(--accent-cyan),var(--accent-purple)); border-radius:3px;"></div>
+                      </div>
+                      <span style="font-size:0.7rem; color:var(--accent-cyan); width:42px;">22.77%</span>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                      <span style="font-size:0.7rem; color:#94a3b8; width:140px; flex-shrink:0;">Seat Comfort</span>
+                      <div style="flex:1; height:6px; background:rgba(255,255,255,0.07); border-radius:3px; overflow:hidden;">
+                        <div style="width:67%; height:100%; background:linear-gradient(90deg,var(--accent-purple),var(--accent-cyan)); border-radius:3px;"></div>
+                      </div>
+                      <span style="font-size:0.7rem; color:var(--accent-purple); width:42px;">15.35%</span>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                      <span style="font-size:0.7rem; color:#94a3b8; width:140px; flex-shrink:0;">Online Booking</span>
+                      <div style="flex:1; height:6px; background:rgba(255,255,255,0.07); border-radius:3px; overflow:hidden;">
+                        <div style="width:42%; height:100%; background:linear-gradient(90deg,var(--accent-emerald),var(--accent-cyan)); border-radius:3px;"></div>
+                      </div>
+                      <span style="font-size:0.7rem; color:var(--accent-emerald); width:42px;">9.52%</span>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                      <span style="font-size:0.7rem; color:#94a3b8; width:140px; flex-shrink:0;">Online Support</span>
+                      <div style="flex:1; height:6px; background:rgba(255,255,255,0.07); border-radius:3px; overflow:hidden;">
+                        <div style="width:28%; height:100%; background:linear-gradient(90deg,var(--accent-amber),var(--accent-emerald)); border-radius:3px;"></div>
+                      </div>
+                      <span style="font-size:0.7rem; color:var(--accent-amber); width:42px;">6.32%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <a href="https://github.com/srinithi1352007manickam-lang/airline-ml-project.git" target="_blank" rel="noopener" class="btn btn-secondary" style="padding:10px 22px; font-size:0.88rem; text-decoration:none; display:inline-block;">
+                  ▶ Open Repository
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION SECTION -->
+    <section id="education">
+      <div class="container">
+        <div class="section-header reveal-fade-up">
+          <span class="section-pill">Milestones</span>
+          <h2 class="section-title">Education & <span class="gradient-text">Academic Journey</span></h2>
+          <p class="section-subtitle">
+            Consistent academic dedication from foundational schooling to undergraduate computer science.
+          </p>
+        </div>
+
+        <div class="timeline-track">
+          
+          <!-- B.Sc Computer Science -->
+          <div class="timeline-item reveal-fade-left delay-1">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-level">Undergraduate Degree (Currently Enrolled)</span>
+                <span class="timeline-score">3rd Year</span>
+              </div>
+              <h3 class="timeline-institution">B.Sc Computer Science</h3>
+              <h4 style="font-size:1.05rem; color:var(--accent-cyan); margin-bottom:8px;">Muthayammal College of Arts and Science</h4>
+              <p class="timeline-details">
+                Pursuing comprehensive studies in software engineering, database management systems, programming paradigms, and modern computer applications.
+              </p>
+            </div>
+          </div>
+
+          <!-- HSC -->
+          <div class="timeline-item reveal-fade-left delay-2">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-level">Higher Secondary Certificate (12th Grade)</span>
+                <span class="timeline-score">Score: 415 / 600</span>
+              </div>
+              <h3 class="timeline-institution">HSC - Kamarajar Matric Higher Secondary School</h3>
+              <p class="timeline-details">
+                Completed secondary higher education with strong academic performance, analytical foundation, and science curriculum.
+              </p>
+            </div>
+          </div>
+
+          <!-- SSLC -->
+          <div class="timeline-item reveal-fade-left delay-3">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card">
+              <div class="timeline-meta">
+                <span class="timeline-level">Secondary School Leaving Certificate (10th Grade)</span>
+                <span class="timeline-score">Score: 356 / 500</span>
+              </div>
+              <h3 class="timeline-institution">SSLC - Kamarajar Matric Higher Secondary School</h3>
+              <p class="timeline-details">
+                Strong fundamental foundation in mathematics, science, and computer basics.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- STRENGTHS & PERSONAL DETAILS SECTION -->
+    <section id="strengths">
+      <div class="container">
+        <div class="section-header reveal-fade-up">
+          <span class="section-pill">Core Attributes</span>
+          <h2 class="section-title">Personal <span class="gradient-text">Strengths & Profile</span></h2>
+          <p class="section-subtitle">
+            Values, problem-solving mindset, and personal profile facts from official resume.
+          </p>
+        </div>
+
+        <div class="strengths-grid">
+          
+          <div class="strength-card tilt-card reveal-fade-up delay-1">
+            <div class="strength-icon">🔥</div>
+            <div>
+              <h4 class="strength-title">Never Give Up Easily</h4>
+              <p class="strength-desc">Relentless perseverance when debugging code, solving design bottlenecks, and overcoming challenging tasks.</p>
+            </div>
+          </div>
+
+          <div class="strength-card tilt-card reveal-fade-up delay-2">
+            <div class="strength-icon">⚡</div>
+            <div>
+              <h4 class="strength-title">Quick Learner</h4>
+              <p class="strength-desc">Rapidly assimilates new programming languages, software libraries, and evolving tech frameworks.</p>
+            </div>
+          </div>
+
+          <div class="strength-card tilt-card reveal-fade-up delay-3">
+            <div class="strength-icon">💡</div>
+            <div>
+              <h4 class="strength-title">Creative Thinking</h4>
+              <p class="strength-desc">Applies original UI/UX design perspectives and innovative approaches to simplify digital experiences.</p>
+            </div>
+          </div>
+
+          <div class="strength-card tilt-card reveal-fade-up delay-4">
+            <div class="strength-icon">🚀</div>
+            <div>
+              <h4 class="strength-title">Willingness to Learn</h4>
+              <p class="strength-desc">Enthusiastic curiosity and proactive attitude towards exploring emerging tools and software methodologies.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Personal Details & Formal Declaration -->
+        <div class="personal-declaration-box reveal-fade-up delay-2">
+          <div class="declaration-grid">
+            
+            <div class="details-column">
+              <h4><span>👤</span> Personal Details & Languages</h4>
+              <div class="details-list">
+                <div class="detail-row">
+                  <span class="detail-k">Full Name</span>
+                  <span class="detail-v">Srinithi</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-k">Date of Birth</span>
+                  <span class="detail-v">13 May 2007</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-k">Location</span>
+                  <span class="detail-v">Namakkal, Tamil Nadu, India</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-k">Languages Known</span>
+                  <span class="detail-v">Tamil (Native), English</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-k">Interests</span>
+                  <span class="detail-v">UI/UX Design, Web Dev, New Tech</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="declaration-column">
+              <h4><span>📜</span> Official Resume Declaration</h4>
+              <p class="declaration-text">
+                "I hereby declare that the information given above is true to the best of my knowledge and belief."
+              </p>
+              <div class="declaration-sign-strip">
+                <div><strong>Place:</strong> Namakkal</div>
+                <div><strong>Signature:</strong> Srinithi</div>
+              </div>
+              <div style="margin-top:20px;">
+                <button class="btn btn-secondary" style="padding:10px 22px; font-size:0.85rem;" data-open-modal="resume">
+                  <span>📄 Open Full Print-Ready Resume</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-header reveal-fade-up">
+          <span class="section-pill">Get in Touch</span>
+          <h2 class="section-title">Connect With <span class="gradient-text">Srinithi</span></h2>
+          <p class="section-subtitle">
+            Looking for an enthusiastic B.Sc Computer Science intern or graduate trainee? Let's connect!
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Contact Info Tile -->
+          <div class="contact-info-card reveal-fade-left">
+            <div>
+              <h3 style="font-size:1.6rem; margin-bottom:12px;">Contact Information</h3>
+              <p style="color:var(--text-secondary); font-size:0.95rem; line-height:1.6;">
+                Feel free to reach out via phone call, WhatsApp, or email for project discussions, job opportunities, or academic collaborations.
+              </p>
+
+              <div class="contact-methods">
+                
+                <!-- Phone -->
+                <div class="contact-method-tile">
+                  <div class="tile-icon-group">
+                    <div class="tile-icon">📞</div>
+                    <div class="tile-meta">
+                      <div class="tile-label">Phone Call</div>
+                      <a href="tel:9345471710" class="tile-val">+91 9345471710</a>
+                    </div>
+                  </div>
+                  <div style="display:flex; gap:6px;">
+                    <button class="copy-mini-btn" onclick="window.Portfolio.copyText('9345471710', 'Phone number copied: 9345471710')">Copy</button>
+                    <a href="tel:9345471710" class="copy-mini-btn" style="text-decoration:none; background:var(--accent-cyan); color:#000;">Call</a>
+                  </div>
+                </div>
+
+                <!-- WhatsApp -->
+                <div class="contact-method-tile">
+                  <div class="tile-icon-group">
+                    <div class="tile-icon">💬</div>
+                    <div class="tile-meta">
+                      <div class="tile-label">WhatsApp</div>
+                      <a href="https://wa.me/919345471710" target="_blank" rel="noopener" class="tile-val">+91 9345471710</a>
+                    </div>
+                  </div>
+                  <a href="https://wa.me/919345471710" target="_blank" rel="noopener" class="copy-mini-btn" style="text-decoration:none; background:#25d366; color:#000; font-weight:600;">Chat</a>
+                </div>
+
+                <!-- Email -->
+                <div class="contact-method-tile">
+                  <div class="tile-icon-group">
+                    <div class="tile-icon">✉️</div>
+                    <div class="tile-meta">
+                      <div class="tile-label">Email Address</div>
+                      <a href="mailto:srinithi1352007manicakm@gmail.com" class="tile-val" style="font-size:0.8rem;">srinithi1352007manicakm@gmail.com</a>
+                    </div>
+                  </div>
+                  <div style="display:flex; gap:6px;">
+                    <button class="copy-mini-btn" onclick="window.Portfolio.copyText('srinithi1352007manicakm@gmail.com', 'Email copied to clipboard!')">Copy</button>
+                    <a href="mailto:srinithi1352007manicakm@gmail.com" class="copy-mini-btn" style="text-decoration:none;">Mail</a>
+                  </div>
+                </div>
+
+                <!-- Location -->
+                <div class="contact-method-tile">
+                  <div class="tile-icon-group">
+                    <div class="tile-icon">📍</div>
+                    <div class="tile-meta">
+                      <div class="tile-label">Location</div>
+                      <div class="tile-val">Namakkal, Tamil Nadu, India</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div style="margin-top:30px; padding-top:20px; border-top:1px solid var(--border-glass);">
+              <span style="font-family:'JetBrains Mono',monospace; font-size:0.75rem; color:var(--accent-cyan);">// RESPONSE TIME: Within 24 Hours</span>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-glass reveal-fade-right">
+            <h3 style="font-size:1.5rem; margin-bottom:8px;">Send a Direct Message</h3>
+            <p style="color:var(--text-secondary); font-size:0.9rem; margin-bottom:24px;">
+              Have an opening or project? Fill out the transmission form below.
+            </p>
+
+            <form id="contact-portfolio-form">
+              <div class="form-group">
+                <label class="form-label">Your Name</label>
+                <input type="text" name="name" class="form-input" placeholder="e.g. Anand Kumar" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Your Email</label>
+                <input type="email" name="email" class="form-input" placeholder="e.g. anand@company.com" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Message / Opportunity Details</label>
+                <textarea name="message" class="form-textarea" placeholder="Hello Srinithi, we have an opportunity for B.Sc Computer Science students..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width:100%;">
+                <span>Transmit Message 🚀</span>
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER HUD -->
+  <footer class="footer-hud">
+    <div class="container footer-inner">
+      <div class="footer-credits">
+        <span>© 2026 <strong>SRINITHI</strong>. B.Sc Computer Science Student.</span>
+      </div>
+      <div style="display:flex; gap:16px; align-items:center;">
+        <span class="footer-badge">Namakkal, Tamil Nadu</span>
+        <button class="btn-glass" style="padding:6px 14px; font-size:0.8rem; border-radius:var(--radius-full);" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+          ↑ Back to Top
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ======================================================================
+       MODAL: CHOCOLATE PROJECT INTERACTIVE DEMO SIMULATOR
+       ====================================================================== -->
+  <div id="choco-modal" class="modal-backdrop">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div>
+          <h3 style="font-size:1.3rem;">🍫 Chocolate Ordering Website / App Simulator</h3>
+          <p style="font-size:0.8rem; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">Interactive Prototype based on Srinithi's Figma & Web Project</p>
+        </div>
+        <button class="modal-close-btn" title="Close Modal">✕</button>
+      </div>
+      <div class="modal-body" id="choco-modal-content">
+        <!-- Injected dynamically by chocolate-demo.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       MODAL: VERIFIED RESUME VIEWER (PRINT-READY)
+       ====================================================================== -->
+  <div id="resume-modal" class="modal-backdrop">
+    <div class="modal-container" style="max-width:850px;">
+      <div class="modal-header">
+        <div>
+          <h3 style="font-size:1.3rem;">📄 Srinithi — Verified Resume</h3>
+          <p style="font-size:0.8rem; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">1-Page Professional Format • 100% Resume Accurate</p>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <button class="btn btn-primary" style="padding:6px 16px; font-size:0.82rem;" onclick="window.print()">
+            🖨️ Print / Save PDF
+          </button>
+          <button class="modal-close-btn" title="Close Modal">✕</button>
+        </div>
+      </div>
+      <div class="modal-body">
+        
+        <!-- White Paper Document View -->
+        <div class="resume-paper" id="resume-print-document">
+          <div class="resume-header">
+            <div>
+              <h1>SRINITHI</h1>
+              <p class="role-subtitle">B.Sc Computer Science Student</p>
+            </div>
+            <div class="resume-contact-block">
+              <div>📍 Namakkal, Tamil Nadu</div>
+              <div>📞 +91 9345471710</div>
+              <div>✉️ srinithi1352007manicakm@gmail.com</div>
+            </div>
+          </div>
+
+          <!-- Objective -->
+          <div class="resume-section-title">CAREER OBJECTIVE</div>
+          <p>
+            Motivated B.Sc Computer Science student looking for an opportunity to improve my technical and communication skills and gain practical experience. I am eager to learn new technologies and contribute effectively to an organization.
+          </p>
+
+          <!-- Education -->
+          <div class="resume-section-title">EDUCATION</div>
+          <div style="margin-bottom:10px;">
+            <div style="display:flex; justify-content:space-between; font-weight:600;">
+              <span>B.Sc Computer Science – 3rd Year</span>
+              <span>Ongoing</span>
+            </div>
+            <div>Muthayammal College of Arts and Science</div>
+          </div>
+
+          <div style="margin-bottom:10px;">
+            <div style="display:flex; justify-content:space-between; font-weight:600;">
+              <span>HSC (12th Grade)</span>
+              <span>Score: 415 / 600</span>
+            </div>
+            <div>Kamarajar Matric Higher Secondary School</div>
+          </div>
+
+          <div style="margin-bottom:10px;">
+            <div style="display:flex; justify-content:space-between; font-weight:600;">
+              <span>SSLC (10th Grade)</span>
+              <span>Score: 356 / 500</span>
+            </div>
+            <div>Kamarajar Matric Higher Secondary School</div>
+          </div>
+
+          <!-- Technical Skills -->
+          <div class="resume-section-title">TECHNICAL SKILLS</div>
+          <p>
+            <strong>Web & Frontend:</strong> HTML & CSS, Basic UI/UX Design<br>
+            <strong>Programming & Systems:</strong> Java, Basic Computer Networking<br>
+            <strong>Database:</strong> SQL / DBMS<br>
+            <strong>Design & Office:</strong> Figma, Canva, MS Office
+          </p>
+
+          <!-- Projects -->
+          <div class="resume-section-title">PROJECTS</div>
+          <div style="margin-bottom:10px;">
+            <strong>SkyPulse AI — Airline Customer Satisfaction ML System</strong>
+            <span style="font-size:0.8rem; color:#64748b; margin-left:8px;">Python · Scikit-learn · Streamlit · Plotly</span>
+            <ul style="margin-top:4px;">
+              <li>Built an end-to-end ML pipeline (Random Forest, 95.23% accuracy, ROC-AUC 0.9922) on 129,880 airline records.</li>
+              <li>Implemented preprocessing pipeline with stratified split, SimpleImputer, and OneHotEncoder to prevent data leakage.</li>
+              <li>Developed a 5-section Streamlit dashboard with live retraining, prediction presets, and feature importance visualizations.</li>
+            </ul>
+          </div>
+          <div style="margin-bottom:8px;">
+            <strong>Chocolate Online Ordering Website / App</strong>
+            <span style="font-size:0.8rem; color:#64748b; margin-left:8px;">HTML · CSS · Figma · Canva</span>
+            <ul style="margin-top:4px;">
+              <li>Designed a simple, elegant chocolate ordering interface.</li>
+              <li>Created product pages and an easy-to-use ordering flow.</li>
+              <li>Worked on visual UI design using Figma and Canva.</li>
+            </ul>
+          </div>
+
+          <!-- Strengths -->
+          <div class="resume-section-title">STRENGTHS</div>
+          <ul>
+            <li>Never give up easily</li>
+            <li>Quick learner</li>
+            <li>Creative thinking</li>
+            <li>Willingness to learn new technologies</li>
+          </ul>
+
+          <!-- Languages & Interests -->
+          <div class="resume-section-title">LANGUAGES & INTERESTS</div>
+          <p>
+            <strong>Languages:</strong> Tamil (Native), English<br>
+            <strong>Interests:</strong> UI/UX Design, Web Development, Learning New Technologies
+          </p>
+
+          <!-- Personal Details & Declaration -->
+          <div class="resume-section-title">PERSONAL DETAILS & DECLARATION</div>
+          <p style="margin-bottom:12px;">
+            <strong>Name:</strong> Srinithi | <strong>Date of Birth:</strong> 13 May 2007 | <strong>Location:</strong> Namakkal, Tamil Nadu
+          </p>
+          <p style="font-style:italic; font-size:0.88rem;">
+            "I hereby declare that the information given above is true to the best of my knowledge and belief."
+          </p>
+          <div style="display:flex; justify-content:space-between; margin-top:16px; font-weight:600; font-size:0.9rem;">
+            <span>Place: Namakkal</span>
+            <span>Signature: Srinithi</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================
+       MODAL: COMMAND PALETTE (CTRL + K)
+       ====================================================================== -->
+  <div id="cmd-modal" class="modal-backdrop">
+    <div class="modal-container cmd-palette">
+      <div class="cmd-input-wrap">
+        <span style="font-size:1.2rem; color:var(--accent-cyan);">⚡</span>
+        <input type="text" id="cmd-search-input" class="cmd-input" placeholder="Type a command or jump to section (e.g. skills, project, contact)..." autocomplete="off">
+        <button class="modal-close-btn" style="width:28px; height:28px; font-size:0.8rem;">✕</button>
+      </div>
+      <ul id="cmd-results-list" class="cmd-results-list">
+        <!-- Rendered by main.js -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- External Scripts: Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Application Scripts -->
+  <script src="js/audio-fx.js"></script>
+  <script src="js/three-scene.js"></script>
+  <script src="js/chocolate-demo.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
